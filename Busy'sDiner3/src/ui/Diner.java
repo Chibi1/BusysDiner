@@ -11,7 +11,7 @@ public class Diner {
         Dish dish = generateTurkeyClubSandwich();
         Server server = new Server(dish);
         Chef chef = new Chef();
-        Server host = new Host(dish);
+        Host host = new Host(dish);
 
         //Table 1
         System.out.println("Table " + 1 + ":\n");
@@ -50,12 +50,12 @@ public class Diner {
         chef.doDishes();
     }
 
-    private static void doOrderRoutine(Server s, Order o) {
+    private static void doOrderRoutine(FOHEmployee e, Order o) {
         System.out.println();
         if (o.isReadyToBeServed())
-            s.deliverFood(o);
+            e.deliverFood(o);
         if(o.isReadyToBePaid())
-            s.takePayment(o);
+            e.takePayment(o);
     }
 
     private static Dish generateTurkeyClubSandwich() {
